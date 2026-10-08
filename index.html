@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>نظام التقديم الإلكتروني - جامعة الهادي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f4;--card:#ffffff;--tx:#12201a;--mu:#68786f;--pr:#0f7a4f;--pr2:#22c55e;--bd:#e0e9e4;--soft:#eaf4ee;--r:16px;--ok:#15803d;--no:#dc2626;--wa:#d97706;--in:#0284c7;--sh:0 8px 30px rgba(15,60,40,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1210;--card:#111c18;--tx:#e7f1ec;--mu:#8fa39a;--bd:#1f2f29;--soft:#162520;--sh:0 8px 30px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0a1210;--card:#111c18;--tx:#e7f1ec;--mu:#8fa39a;--bd:#1f2f29;--soft:#162520;--sh:0 8px 30px rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Cairo,Tahoma,sans-serif;line-height:1.7;transition:background .3s}
+header{position:sticky;top:0;z-index:5;background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;box-shadow:0 4px 24px rgba(0,0,0,.18)}
+.brand{display:flex;align-items:center;gap:12px}#logo{width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.95);display:grid;place-items:center;font-size:24px;overflow:hidden}#logo img{width:100%;height:100%;object-fit:contain}
+#bn{font-weight:700;font-size:17px;line-height:1.2}#bs{font-size:12px;opacity:.85}
+nav{display:flex;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border-radius:999px;padding:4px}
+nav button{background:transparent;color:#fff;border:0;padding:7px 16px;border-radius:999px;font-family:inherit;font-size:14px;cursor:pointer;transition:.2s}
+nav button.on{background:#fff;color:var(--pr);font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+main{max-width:920px;margin:20px auto;padding:0 14px}
+.hero{position:relative;overflow:hidden;border-radius:calc(var(--r) + 8px);padding:30px 24px;margin-bottom:18px;color:#fff;background:radial-gradient(circle at 15% 20%,rgba(255,255,255,.22),transparent 40%),radial-gradient(circle at 90% 90%,rgba(255,255,255,.15),transparent 45%),linear-gradient(135deg,var(--pr),var(--pr2));box-shadow:var(--sh)}
+.hero h2{font-size:clamp(22px,5vw,32px);margin:0 0 6px}.hero p{margin:0 0 16px;opacity:.92}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:rgba(255,255,255,.2);backdrop-filter:blur(6px);padding:5px 14px;border-radius:999px;font-size:13px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:22px;margin-bottom:18px;box-shadow:var(--sh)}
+h2{margin:0 0 14px;font-size:17px;display:flex;align-items:center;gap:10px}
+form h2::before,#d-set h2::before,#d-staff h2::before{content:"";width:5px;height:22px;border-radius:4px;background:linear-gradient(var(--pr),var(--pr2))}
+.hero h2::before{display:none}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+label{display:block;font-size:13px;color:var(--mu);margin-bottom:4px;font-weight:600}
+input,select,textarea{width:100%;padding:11px 13px;border:1.5px solid var(--bd);border-radius:calc(var(--r) - 5px);background:var(--bg);color:var(--tx);font-family:inherit;font-size:14px;transition:.2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pr);box-shadow:0 0 0 4px color-mix(in srgb,var(--pr) 18%,transparent)}
+input[type=color]{padding:3px;height:44px}input[type=range]{padding:0;accent-color:var(--pr)}
+button.b{background:linear-gradient(135deg,var(--pr),var(--pr2));color:#fff;border:0;padding:12px 26px;border-radius:999px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px color-mix(in srgb,var(--pr) 35%,transparent);transition:.2s}
+button.b:hover{transform:translateY(-2px)}button.b:disabled{opacity:.6}
+button.s{background:var(--soft);color:var(--pr);border:0;padding:7px 14px;border-radius:999px;font-family:inherit;cursor:pointer;font-size:13px;font-weight:600;transition:.2s}button.s:hover{background:var(--pr);color:#fff}
+.info{background:var(--soft);border-radius:calc(var(--r) - 4px);padding:14px;margin-top:12px;font-size:14px;border-inline-start:4px solid var(--pr)}
+.tag{display:inline-block;padding:3px 12px;border-radius:999px;font-size:12px;color:#fff;font-weight:600}
+.t-p{background:var(--in)}.t-a{background:var(--ok)}.t-r{background:var(--no)}.t-d{background:var(--wa)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}th{color:var(--mu);font-weight:600;background:var(--soft)}th,td{padding:10px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}tr:hover td{background:var(--soft)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:18px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:14px;text-align:center;box-shadow:var(--sh);font-size:13px;color:var(--mu)}
+.stat b{font-size:28px;display:block;background:linear-gradient(135deg,var(--pr),var(--pr2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hide{display:none}.msg{padding:14px;border-radius:var(--r);background:var(--soft);border:1px solid var(--pr);margin-top:12px}
+.sw{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.sw button{border:2px solid var(--bd);border-radius:999px;padding:6px 14px 6px 10px;background:var(--card);color:var(--tx);font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:8px}.sw i{width:22px;height:22px;border-radius:50%;display:inline-block}
+section{animation:f .35s}@keyframes f{from{opacity:0;transform:translateY(8px)}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div id="logo">🎓</div><div><div id="bn"></div><div id="bs"></div></div></div>
+<nav><button id="n1" class="on" onclick="go(1)">تقديم طلب</button><button id="n2" onclick="go(2)">متابعة الطلب</button><button id="n3" onclick="go(3)">الموظفون</button></nav></header>
+<main>
+
+<section id="v1">
+<div class="hero"><h2 id="heroT"></h2><p id="heroP"></p><div class="chips"><span>✔ أقساط ثابتة طوال الدراسة</span><span>✔ تسديد على 5 دفعات</span><span>✔ هوية جامعية مجاناً</span></div></div>
+<form class="card" id="f" onsubmit="return sub(event)">
+<h2>١. البيانات الشخصية</h2>
+<div class="g">
+<div><label>الاسم الثلاثي</label><input name="name" required></div>
+<div><label>اللقب</label><input name="surname" required></div>
+<div><label>رقم الهاتف (واتساب)</label><input name="phone" required inputmode="tel" placeholder="07XXXXXXXXX"></div>
+<div><label>المحافظة</label><select name="gov" id="gov" required></select></div>
+<div><label>المنطقة</label><input name="area" required></div>
+<div><label>أقرب نقطة دالة</label><input name="landmark" required></div>
+</div>
+<h2 style="margin-top:20px">٢. البيانات الدراسية</h2>
+<div class="g">
+<div><label>الرقم الامتحاني</label><input name="examNo" required></div>
+<div><label>سنة التخرج</label><input name="year" type="number" min="2000" max="2030" required></div>
+<div><label>اسم المدرسة</label><input name="school" required></div>
+<div><label>الفرع</label><select name="branch" id="branch"><option>علمي</option><option>أحيائي</option><option>تطبيقي</option><option>أدبي</option><option>الفنون</option><option>إعدادية التمريض</option><option>التمريض (قبالة وتوليد)</option><option value="مهني">خريج صناعة / معهد / مهني</option></select></div>
+<div><label>نوع الدراسة المطلوبة</label><select name="study" id="study"><option>صباحي</option><option>مسائي</option></select></div>
+<div><label>المعدل</label><input name="avg" type="number" step="0.01" min="0" max="100" required></div>
+<div><label>المجموع</label><input name="total" type="number" min="0" required></div>
+</div>
+<div class="info" style="margin:0 0 14px">✅ أقساط ثابتة لكل سنوات الدراسة • تسديد على 5 دفعات • الهوية الجامعية مجاناً لمدة 4 سنوات<br>الاستفسار: 07714208482 — الرقم المختصر 6484 — بغداد/الدورة/نهاية شارع 60/قرب كنيسة بطرس وبولس</div>
+<h2 style="margin-top:20px">٣. القسم المطلوب</h2>
+<div class="g"><div><label>القسم</label><select name="dept" id="dept" required></select></div></div>
+<div class="info hide" id="deptinfo"></div>
+<h2 style="margin-top:20px">٤. المرفقات</h2>
+<div class="g">
+<div><label>صورة شخصية</label><input type="file" id="photo" accept="image/*" required></div>
+<div><label>مستمسكات (البطاقة الموحدة / السكن)</label><input type="file" id="docs" accept="image/*" multiple required></div>
+</div>
+<label style="margin-top:14px;color:var(--tx)"><input type="checkbox" name="grad" style="width:auto" required> أُقرّ بصحة التخرج وصحة جميع البيانات المدخلة</label>
+<p><button class="b" id="sbtn">إرسال الطلب</button></p>
+<div id="done" class="msg hide"></div>
+</form>
+</section>
+
+<section id="v2" class="hide">
+<div class="card"><h2>متابعة حالة الطلب</h2>
+<div class="g"><div><label>رقم الطلب</label><input id="q" placeholder="HD-XXXXXX"></div><div style="align-self:end"><button class="b" onclick="track()">استعلام</button></div></div>
+<div id="tr"></div></div>
+</section>
+
+<section id="v3" class="hide">
+<div class="card" id="login"><h2>دخول الموظفين</h2>
+<div class="g"><div><label>البريد الإلكتروني</label><input id="em" type="email"></div><div><label>الرمز السري</label><input id="pw" type="password"></div></div>
+<p><button class="b" onclick="login()">دخول</button> <span id="le" style="color:var(--no)"></span></p>
+<small style="color:var(--mu)">تجريبي: admin@hadi.edu / 1234</small></div>
+<div id="dash" class="hide">
+<div class="card" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><div id="me"></div>
+<div><button class="s" onclick="dtab('reqs')">الطلبات</button> <button class="s" onclick="dtab('staff')">الموظفون والصلاحيات</button> <button class="s" onclick="dtab('set')">الإعدادات</button> <button class="s" onclick="dtab('prof')">ملفي</button> <button class="s" onclick="logout()">خروج</button></div></div>
+<div id="d-reqs"><div class="stats" id="stats"></div>
+<div class="card"><div class="g"><div><label>تصفية الحالة</label><select id="flt" onchange="rend()"><option value="">الكل</option><option>قيد التدقيق</option><option>مقبول</option><option>مرفوض</option><option>مطلوب مستندات</option></select></div><div><label>بحث</label><input id="srch" oninput="rend()" placeholder="اسم / رقم طلب"></div></div>
+<div class="tw"><table><thead><tr><th>الرقم</th><th>الطالب</th><th>القسم</th><th>الدراسة</th><th>المعدل</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="tb"></tbody></table></div></div></div>
+<div id="d-staff" class="hide card"><h2>إدارة الموظفين</h2>
+<div class="g"><div><label>الاسم</label><input id="sn"></div><div><label>البريد</label><input id="se"></div><div><label>الرمز</label><input id="sp"></div>
+<div><label>الصلاحية</label><select id="sr"><option value="view">اطلاع فقط</option><option value="review">تدقيق وتغيير الحالة</option><option value="admin">مدير كامل</option></select></div></div>
+<p><button class="b" onclick="addStaff()">إضافة موظف</button></p><div class="tw"><table><thead><tr><th>الاسم</th><th>البريد</th><th>الصلاحية</th><th></th></tr></thead><tbody id="stb"></tbody></table></div></div>
+<div id="d-set" class="hide card"><h2>🎨 المظهر والهوية</h2>
+<p style="color:var(--mu);font-size:13px;margin:0 0 8px">ثيمات جاهزة</p><div class="sw" id="presets"></div>
+<div class="g">
+<div><label>اسم الجامعة</label><input id="u_name" oninput="setUI()"></div>
+<div><label>السطر الفرعي</label><input id="u_sub" oninput="setUI()"></div>
+<div><label>عنوان الواجهة الرئيسية</label><input id="u_ht" oninput="setUI()"></div>
+<div><label>النص التعريفي</label><input id="u_hp" oninput="setUI()"></div>
+<div><label>اللون الأساسي</label><input type="color" id="u_pr" oninput="setUI()"></div>
+<div><label>اللون الثانوي</label><input type="color" id="u_pr2" oninput="setUI()"></div>
+<div><label>الوضع</label><select id="u_mode" onchange="setUI()"><option value="auto">تلقائي</option><option value="light">فاتح</option><option value="dark">داكن</option></select></div>
+<div><label>استدارة الزوايا</label><input type="range" id="u_r" min="4" max="28" oninput="setUI()"></div>
+<div><label>شعار الجامعة</label><input type="file" id="u_logo" accept="image/*" onchange="setLogo(this)"></div></div>
+<p><button class="s" onclick="resetUI()">استعادة الإعدادات الافتراضية</button></p><hr style="border:0;border-top:1px solid var(--bd);margin:18px 0">
+<h2>💾 النسخ الاحتياطي والرسائل</h2>
+<p><button class="b" onclick="backup()">تنزيل نسخة احتياطية (JSON)</button></p>
+<label>استعادة نسخة</label><input type="file" accept=".json" onchange="restore(this)">
+<p style="color:var(--mu);font-size:13px">قالب رسالة واتساب (استخدم {name} و{status} و{id})</p><textarea id="tpl" rows="3" onchange="saveTpl()"></textarea></div>
+<div id="d-prof" class="hide card"><h2>الملف الشخصي</h2><div id="pf"></div></div>
+</div>
+</section>
+</main>
+<script>
+// ===== إعدادات: عدّل الأقسام هنا عند وصول القوائم الرسمية =====
+const GOVS=["بغداد","نينوى","البصرة","ذي قار","ديالى","الأنبار","بابل","كربلاء","النجف","واسط","صلاح الدين","كركوك","القادسية","ميسان","المثنى","دهوك","أربيل","السليمانية","حلبجة"];
+const DEPTS=[ // m=صباحي e=مسائي (null=غير متاح/قيد الاستحداث) pm=خريجو الدراسة المهنية
+{n:"تقنيات الهندسة الكهربائية",col:"الكلية التقنية الهندسية",fee:1600000,m:62.5,e:null,pm:{m:62.5,e:null},br:["علمي", "تطبيقي"],ph:["07756077395"],x:"يُقبل أيضاً: خريجو الصناعة والحاسوب وتقنية المعلومات وخريجو مراكز التدريب المهني / معهد السكك (3 سنوات)"},
+{n:"تقنيات الأشعة",col:"كلية التقنيات الصحية والطبية",fee:1600000,m:69.5,e:64.5,pm:null,br:["علمي", "أحيائي"],ph:["07729435296"],x:"يُقبل أيضاً: خريجو المعاهد (أول 20%): الأشعة، المعالجة الشعاعية"},
+{n:"تقنيات التصميم الداخلي",col:"كلية الفنون التطبيقية",fee:1600000,m:50,e:50,pm:{m:50,e:50},br:["علمي", "تطبيقي", "أدبي", "الفنون"],ph:["07825673801", "07832479334"],x:"يُقبل أيضاً: خريجو الفنون التطبيقية والصناعة (نجارة، نماذج) ومعهد الفنون الجميلة (التصميم) وخريجو المعاهد (أول 20%) في التصميم وما يتعلق بها"},
+{n:"تقنيات المختبرات الطبية",col:"كلية التقنيات الصحية والطبية",fee:1600000,m:69.5,e:64.5,pm:null,br:["علمي", "أحيائي"],ph:["07822485303"],x:"يُقبل أيضاً: خريجو المعاهد (أول 20%): التحليلات المرضية"},
+{n:"الفيزياء الطبية",col:"كلية العلوم",fee:1600000,m:59.5,e:57.5,pm:null,br:["علمي", "أحيائي", "تطبيقي"],ph:["07776579601"],x:""},
+{n:"تقنيات صحة المجتمع",col:"كلية التقنيات الصحية والطبية",fee:1600000,m:69.5,e:null,pm:null,br:["علمي", "أحيائي"],ph:["07830673687"],x:"يُقبل أيضاً: خريجو المعاهد (أول 20%): صحة المجتمع"},
+{n:"تقنيات التخدير",col:"كلية التقنيات الصحية والطبية",fee:2000000,m:69.5,e:64.5,pm:null,br:["علمي", "أحيائي"],ph:["07711222379"],x:"يُقبل أيضاً: خريجو المعاهد (أول 20%): التخدير"},
+{n:"هندسة تقنيات الأجهزة الطبية",col:"الكلية التقنية الهندسية",fee:1600000,m:62.5,e:59.5,pm:{m:64.5,e:61.5},br:["علمي", "أحيائي", "تطبيقي"],ph:["07756077395"],x:"يُقبل أيضاً: خريجو الصناعة (إلكترونيك والسيطرة، الأجهزة الطبية) وخريجو المعاهد (أول 20%)"},
+{n:"طب الأسنان",col:"كلية طب الأسنان",fee:4000000,m:89.5,e:null,pm:null,br:["علمي", "أحيائي"],ph:["07705868549"],x:"دراسة صباحية فقط"},
+{n:"القانون",col:"كلية القانون",fee:1000000,m:67.5,e:64.5,pm:null,br:["علمي", "أحيائي", "تطبيقي", "أدبي"],ph:["07810377703"],x:"يُقبل أيضاً: مفوضو الشرطة وخريجو المعاهد (أول 20%): الإدارة القانونية"},
+{n:"تقنيات التجميل والليزر",col:"كلية التقنيات الصحية والطبية",fee:1600000,m:69.5,e:64.5,pm:null,br:["علمي", "أحيائي"],ph:["07763320953", "07712057762"],x:""},
+{n:"هندسة تقنيات الأمن السيبراني",col:"الكلية التقنية الهندسية",fee:1600000,m:62.5,e:59.5,pm:{m:64.5,e:61.5},br:["علمي", "أحيائي", "تطبيقي"],ph:["07756077395"],x:"يُقبل أيضاً: خريجو الصناعة (الإلكترونيك والحاسبات وشبكات الحاسوب) وخريجو الحاسوب وتقنية المعلومات"},
+{n:"تقنيات الكلية الصناعية (الديلزة)",col:"كلية التقنيات الصحية والطبية",fee:1600000,m:69.5,e:64.5,pm:null,br:["علمي", "أحيائي"],ph:["07715193886"],x:"يُقبل أيضاً: خريجو المعاهد (أول 20%): تقنيات غسيل الكلى"},
+{n:"التمريض",col:"كلية التمريض",fee:2000000,m:77.5,e:null,pm:null,br:["علمي", "أحيائي", "إعدادية التمريض", "التمريض (قبالة وتوليد)"],ph:["07818551333", "07712057762"],x:"دراسة صباحية فقط. يُقبل أيضاً: خريجو المعاهد (أول 20%): التمريض، القبالة والتوليد، الإسعافات الأولية، الإنعاش"}];
+const STATUS=["قيد التدقيق","مقبول","مرفوض","مطلوب مستندات"];
+const cls={"قيد التدقيق":"t-p","مقبول":"t-a","مرفوض":"t-r","مطلوب مستندات":"t-d"};
+const L=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const S=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){alert("المساحة ممتلئة")}};
+let reqs=L("hd_reqs",[]),staff=L("hd_staff",[{n:"المدير العام",e:"admin@hadi.edu",p:"1234",r:"admin"}]),tpl=L("hd_tpl","مرحباً {name}، تم تحديث حالة طلبك رقم {id} إلى: {status} — جامعة الهادي"),cur=null;
+const $=id=>document.getElementById(id);
+const roleN={view:"اطلاع فقط",review:"تدقيق",admin:"مدير"};
+$("gov").innerHTML='<option value="">اختر المحافظة</option>'+GOVS.map(g=>`<option>${g}</option>`).join("");
+const minFor=(d,st,br)=>{const k=st=="صباحي"?"m":"e";return(br=="مهني"&&d.pm&&d.pm[k]!=null)?d.pm[k]:d[k]};
+function fillDepts(){const b=$("branch").value;$("dept").innerHTML='<option value="">اختر القسم</option>'+DEPTS.filter(d=>b=="مهني"||d.br.includes(b)).map(d=>`<option>${d.n}</option>`).join("");$("deptinfo").classList.add("hide")}
+$("branch").onchange=fillDepts;fillDepts();
+function showInfo(){const d=DEPTS.find(x=>x.n===$("dept").value),i=$("deptinfo");if(!d){i.classList.add("hide");return}
+const m=minFor(d,$("study").value,$("branch").value);
+i.classList.remove("hide");i.innerHTML=`<b>${d.col}</b><br>القسط السنوي: <b>${d.fee.toLocaleString()}</b> د.ع ثابت لكل سنوات الدراسة — تسديد مرن على <b>5 دفعات</b> (${(d.fee/5).toLocaleString()} د.ع للدفعة)<br>الحد الأدنى للمعدل (${$("study").value}): <b>${m==null?"غير متاح / قيد الاستحداث":m}</b><br>مدخلات القبول: <b>${d.br.join(" + ")}</b>${d.x?`<br><small>${d.x}</small>`:""}<br><small>للتواصل مع القسم: ${d.ph.join(" - ")}</small>`}
+$("dept").onchange=showInfo;$("study").onchange=showInfo;
+function go(n){[1,2,3].forEach(i=>{$("v"+i).classList.toggle("hide",i!=n);$("n"+i).classList.toggle("on",i==n)})}
+function shrink(file,max=700){return new Promise(r=>{const im=new Image,u=URL.createObjectURL(file);im.onload=()=>{const s=Math.min(1,max/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);r(c.toDataURL("image/jpeg",.6))};im.src=u})}
+async function sub(e){e.preventDefault();const f=e.target,d=DEPTS.find(x=>x.n===f.dept.value);
+const mn=minFor(d,f.study.value,f.branch.value);if(mn==null){alert("هذا القسم غير متاح للدراسة "+f.study.value+" حالياً");return false}
+if(+f.avg.value<mn&&!confirm("معدلك أقل من الحد الأدنى ("+mn+"). هل تريد المتابعة؟"))return false;
+$("sbtn").disabled=true;
+const id="HD-"+Date.now().toString(36).toUpperCase().slice(-6);
+const r={id,date:new Date().toISOString(),status:"قيد التدقيق",note:""};
+["name","surname","phone","gov","area","landmark","examNo","year","school","branch","study","avg","total","dept"].forEach(k=>r[k]=f[k].value);
+r.photo=await shrink($("photo").files[0],250);r.docs=await Promise.all([...$("docs").files].map(x=>shrink(x)));
+reqs.push(r);S("hd_reqs",reqs);f.reset();fillDepts();$("sbtn").disabled=false;
+$("done").classList.remove("hide");$("done").innerHTML=`تم استلام طلبك بنجاح ✅<br>رقم طلبك: <b>${id}</b> — احتفظ به لمتابعة الحالة.`;scrollTo(0,0);return false}
+function track(){const r=reqs.find(x=>x.id===$("q").value.trim().toUpperCase());$("tr").innerHTML=r?`<div class="info"><b>${r.name} ${r.surname}</b> — ${r.dept}<br>الحالة: <span class="tag ${cls[r.status]}">${r.status}</span>${r.note?`<br>ملاحظة: ${r.note}`:""}</div>`:'<div class="info">لا يوجد طلب بهذا الرقم</div>'}
+function login(){const u=staff.find(s=>s.e===$("em").value.trim()&&s.p===$("pw").value);if(!u){$("le").textContent="بيانات غير صحيحة";return}
+cur=u;$("login").classList.add("hide");$("dash").classList.remove("hide");$("me").innerHTML=`مرحباً <b>${u.n}</b> — ${roleN[u.r]}`;$("tpl").value=tpl;rend();dtab("reqs");
+$("pf").innerHTML=`الاسم: ${u.n}<br>البريد: ${u.e}<br>الصلاحية: ${roleN[u.r]}`}
+function logout(){cur=null;$("dash").classList.add("hide");$("login").classList.remove("hide")}
+function dtab(t){["reqs","staff","set","prof"].forEach(x=>$("d-"+x).classList.toggle("hide",x!=t));
+if((t=="staff"||t=="set")&&cur.r!="admin"){alert("ليست لديك صلاحية");dtab("reqs");return}if(t=="staff")stf()}
+function rend(){const f=$("flt").value,q=($("srch")?.value||"").toLowerCase();
+$("stats").innerHTML=`<div class="stat"><b>${reqs.length}</b>الكل</div>`+STATUS.map(s=>`<div class="stat"><b>${reqs.filter(r=>r.status==s).length}</b>${s}</div>`).join("");
+$("tb").innerHTML=reqs.filter(r=>(!f||r.status==f)&&(r.name+r.surname+r.id).toLowerCase().includes(q)).reverse().map(r=>`<tr><td>${r.id}</td><td>${r.name} ${r.surname}</td><td>${r.dept}</td><td>${r.study||""}</td><td>${r.avg}</td><td><span class="tag ${cls[r.status]}">${r.status}</span></td><td><button class="s" onclick="det('${r.id}')">فتح</button></td></tr>`).join("")||'<tr><td colspan="7">لا توجد طلبات</td></tr>'}
+function det(id){const r=reqs.find(x=>x.id==id),can=cur.r!="view";
+const w=window.open("","_blank");if(!w){alert("اسمح بالنوافذ المنبثقة");return}
+const m=document.createElement("div");
+let h=`<div dir=rtl style="font-family:Cairo,sans-serif;padding:16px"><h3>${r.id} — ${r.name} ${r.surname}</h3><img src="${r.photo}" width=100><p>الهاتف: ${r.phone}<br>العنوان: ${r.gov} / ${r.area} / ${r.landmark}<br>الامتحاني: ${r.examNo} — التخرج: ${r.year} — ${r.school} (${r.branch})<br>المعدل: ${r.avg} — المجموع: ${r.total}<br>القسم: ${r.dept}</p>${r.docs.map(d=>`<img src="${d}" width=260>`).join(" ")}</div>`;
+w.document.write(h);
+if(can){const s=prompt("الحالة الجديدة:\n1 قيد التدقيق\n2 مقبول\n3 مرفوض\n4 مطلوب مستندات\n(اتركه فارغاً بدون تغيير)");if(s&&STATUS[s-1]){r.status=STATUS[s-1];r.note=prompt("ملاحظة للطالب (اختياري)")||"";S("hd_reqs",reqs);rend();
+if(confirm("إرسال إشعار واتساب للطالب؟")){const p=r.phone.replace(/^0/,"964").replace(/\D/g,"");const t=tpl.replace("{name}",r.name).replace("{status}",r.status).replace("{id}",r.id);window.open(`https://wa.me/${p}?text=${encodeURIComponent(t)}`)}}}}
+function stf(){$("stb").innerHTML=staff.map((s,i)=>`<tr><td>${s.n}</td><td>${s.e}</td><td>${roleN[s.r]}</td><td>${s.e==cur.e?"":`<button class="s" onclick="delS(${i})">حذف</button>`}</td></tr>`).join("")}
+function addStaff(){const s={n:$("sn").value,e:$("se").value,p:$("sp").value,r:$("sr").value};if(!s.n||!s.e||!s.p)return alert("أكمل الحقول");staff.push(s);S("hd_staff",staff);stf();["sn","se","sp"].forEach(i=>$(i).value="")}
+function delS(i){if(confirm("حذف الموظف؟")){staff.splice(i,1);S("hd_staff",staff);stf()}}
+function saveTpl(){tpl=$("tpl").value;S("hd_tpl",tpl)}
+function backup(){const b=new Blob([JSON.stringify({reqs,staff,tpl,ui})],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-"+new Date().toISOString().slice(0,10)+".json";a.click()}
+function restore(i){const f=i.files[0];if(!f)return;f.text().then(t=>{try{const d=JSON.parse(t);reqs=d.reqs||[];staff=d.staff||staff;tpl=d.tpl||tpl;if(d.ui){ui=Object.assign({},UI0,d.ui);S("hd_ui",ui);applyUI();fillUI()}S("hd_reqs",reqs);S("hd_staff",staff);S("hd_tpl",tpl);rend();alert("تمت الاستعادة")}catch(e){alert("ملف غير صالح")}})}
+
+const UI0={name:"جامعة الهادي",sub:"القبول للعام الدراسي 2026/2027",heroT:"ابدأ مستقبلك في جامعة الهادي",heroP:"قدّم طلبك إلكترونياً في دقائق وتابع حالته لحظة بلحظة",pr:"#0f7a4f",pr2:"#22c55e",mode:"auto",r:16,logo:""};
+const PRESETS=[["أخضر الهادي","#0f7a4f","#22c55e"],["أزرق ملكي","#1e40af","#38bdf8"],["بنفسجي","#6d28d9","#ec4899"],["ذهبي","#92400e","#f59e0b"],["أسود وتركوازي","#0f172a","#14b8a6"],["أحمر عنابي","#9f1239","#fb7185"]];
+let ui=Object.assign({},UI0,L("hd_ui",{}));
+function applyUI(){const r=document.documentElement;r.style.setProperty("--pr",ui.pr);r.style.setProperty("--pr2",ui.pr2);r.style.setProperty("--r",ui.r+"px");r.dataset.theme=ui.mode=="auto"?"":ui.mode;
+$("bn").textContent=ui.name;$("bs").textContent=ui.sub;$("heroT").textContent=ui.heroT;$("heroP").textContent=ui.heroP;document.title=ui.name+" - نظام التقديم";
+$("logo").innerHTML=ui.logo?`<img src="${ui.logo}">`:"🎓"}
+function fillUI(){$("u_name").value=ui.name;$("u_sub").value=ui.sub;$("u_ht").value=ui.heroT;$("u_hp").value=ui.heroP;$("u_pr").value=ui.pr;$("u_pr2").value=ui.pr2;$("u_mode").value=ui.mode;$("u_r").value=ui.r}
+function setUI(){ui={...ui,name:$("u_name").value,sub:$("u_sub").value,heroT:$("u_ht").value,heroP:$("u_hp").value,pr:$("u_pr").value,pr2:$("u_pr2").value,mode:$("u_mode").value,r:+$("u_r").value};S("hd_ui",ui);applyUI()}
+async function setLogo(i){if(i.files[0]){ui.logo=await shrink(i.files[0],200);S("hd_ui",ui);applyUI()}}
+function resetUI(){ui={...UI0};S("hd_ui",ui);applyUI();fillUI()}
+$("presets").innerHTML=PRESETS.map((p,i)=>`<button type="button" onclick="ui.pr='${p[1]}';ui.pr2='${p[2]}';S('hd_ui',ui);applyUI();fillUI()"><i style="background:linear-gradient(135deg,${p[1]},${p[2]})"></i>${p[0]}</button>`).join("");
+applyUI();fillUI();
+</script>
+</body>
+</html>
